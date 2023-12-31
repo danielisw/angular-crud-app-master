@@ -1,0 +1,54 @@
+<div mat-dialog-title>
+    <h1>Captura del prospecto</h1>
+</div>
+<form [formGroup]="empForm" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <mat-form-field class="example-full-width">
+                <mat-label>Nombre del prospecto</mat-label>
+                <input matInput type="text" placeholder="Ej: Jose Daniel..." formControlName="nombreCompletoTxt">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Primer apellido</mat-label>
+                <input matInput placeholder="Ej. Tobon" formControlName="primerApellidoTxt">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>Segundo apellido</mat-label>
+              <input matInput placeholder="Ej. Santi" formControlName="segundoApellidoTxt">
+          </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field class="example-full-width">
+                <mat-label>Calle</mat-label>
+                <input matInput placeholder="Ej. Av. Oaxaca" formControlName="calleTxt">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>Numero</mat-label>
+              <input matInput type="number" placeholder="Ej. 128" formControlName="numeroTxt">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Colonia</mat-label>
+            <input matInput placeholder="Ej. Tierra y libertad" formControlName="coloniaTxt">
+        </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field class="example-full-width">
+            <mat-label>Codigo postal</mat-label>
+            <input matInput type="number" #postalCode maxlength="5" placeholder="Ej. 94105">
+            <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Telefono</mat-label>
+            <input matInput type="number" #telefono maxlength="10" placeholder="Ej. 6412121289">
+            <mat-hint align="end">{{telefono.value.length}} / 10</mat-hint>
+          </mat-form-field>
+        </div>
+
+
+    </div>
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancelar</button>
+        <button mat-raised-button color="primary" type="submit">{{data ? 'Actualizar': 'Guardar'}}</button>
+    </div>
+</form>
